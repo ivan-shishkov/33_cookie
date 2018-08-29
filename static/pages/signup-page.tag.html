@@ -35,39 +35,39 @@
     </div>
   </div>
   <script type="text/javascript">
-    this.errorMsg = ''
-    this.isPwdVisible = false
+    this.errorMsg = '';
+    this.isPwdVisible = false;
 
     this.showPassword = function(event){
-      this.refs.password.focus()
-      this.isPwdVisible = true
-    }
+      this.refs.password.focus();
+      this.isPwdVisible = true;
+    };
     this.hidePassword = function(event){
-      this.refs.password.focus()
-      this.isPwdVisible = false
-    }
+      this.refs.password.focus();
+      this.isPwdVisible = false;
+    };
     this.submit = function(event){
-      event.preventDefault()
+      event.preventDefault();
 
-      var riotTag = this
-      var formElement = event.target
+      var riotTag = this;
+      var formElement = event.target;
       fetch(window.getAPIUrl('/signup'), {
         method: 'POST',
         body: new FormData(formElement)
       }).then(function(response) {
         if (response.status==200){
-          window.go2page('/')
+          window.go2page('/');
         } else if (response.status==400){
-          riotTag.errorMsg = 'Упс, что-то пошло не так. Попробуйте еще раз'
-          riotTag.update()
+          riotTag.errorMsg = 'Упс, что-то пошло не так. Попробуйте еще раз';
+          riotTag.update();
         } else if (response.status==500){
-          riotTag.errorMsg = 'Упс, что-то пошло не так. Ошибка на сервере'
-          riotTag.update()
+          riotTag.errorMsg = 'Упс, что-то пошло не так. Ошибка на сервере';
+          riotTag.update();
         }
       }).catch(function(error) {
-        riotTag.errorMsg = 'Упс, что-то пошло не так'
-        console.error(error)
-        riotTag.update()
+        riotTag.errorMsg = 'Упс, что-то пошло не так';
+        console.error(error);
+        riotTag.update();
       })
     }
   </script>

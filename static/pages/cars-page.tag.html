@@ -11,30 +11,30 @@
     </div>
   </div>
   <script type="text/javascript">
-    this.cars = []
+    this.cars = [];
 
-    var riotTag = this
+    var riotTag = this;
 
     function fetchCars(){
       fetch(window.getAPIUrl('/cars')).then(function(response) {
         if (response.status==200){
-          return response.json()
+          return response.json();
         } else if (response.status==403){
-          window.go2page('/signup')
+          window.go2page('/signup');
         } else if (response.status==500){
-          alert('Упс, что-то пошло не так. Ошибка на сервере')
+          alert('Упс, что-то пошло не так. Ошибка на сервере');
         }
       }).catch(function(error) {
-        alert('Упс, что-то пошло не так')
-        console.error(error)
+        alert('Упс, что-то пошло не так');
+        console.error(error);
       }).then(function(jsonData){
         if (jsonData){
-          riotTag.cars = jsonData.cars
-          riotTag.update()
+          riotTag.cars = jsonData.cars;
+          riotTag.update();
         }
       })
     }
 
-    this.on('mount', fetchCars)
+    this.on('mount', fetchCars);
   </script>
 </cars-page>

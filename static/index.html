@@ -150,39 +150,39 @@
   <script type="text/javascript">
     window.getAPIUrl = function(endpoint){
       if (endpoint.startsWith('/'))
-        endpoint = endpoint.substring(1)
+        endpoint = endpoint.substring(1);
 
       // return 'http://localhost:8080/' + endpoint // Uncomment to enable local API gateway
-      return 'http://api.33_cookie.devman.org/' + endpoint
+      return 'http://api.33_cookie.devman.org/' + endpoint;
     }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/riot@3.6/riot+compiler.min.js"></script>
   <script>
   function main(){
-    var mountPoint = document.getElementById('page-container')
+    var mountPoint = document.getElementById('page-container');
 
     // initialize JS router
-    var root = null
-    var useHash = true
-    var router = new Navigo(root, useHash)
+    var root = null;
+    var useHash = true;
+    var router = new Navigo(root, useHash);
 
     window.go2page = function(url){
       router.navigate(url);
-    }
+    };
 
     router.on({
       // docs live here https://github.com/krasimir/navigo
       '/signup': function(){
-        riot.mount(mountPoint, 'signup-page', {})
+        riot.mount(mountPoint, 'signup-page', {});
       },
 
       '/': function(){
-        riot.mount(mountPoint, 'cars-page', {})
+        riot.mount(mountPoint, 'cars-page', {});
       },
     }).resolve();
 
   }
-  main()
+  main();
   </script>
 </body>
 </html>
