@@ -120,16 +120,7 @@
 </head>
 <body>
   <div class="container">
-    <div class="header clearfix">
-      <nav>
-        <ul class="nav nav-pills pull-right">
-          <!-- TODO вынести шапку в riot tag и добавить логику -->
-          <li role="presentation" class="active"><a href="#/">Мои автомобили</a></li>
-          <li role="presentation"><a href="#/signup">Регистрация</a></li>
-        </ul>
-      </nav>
-      <h3 class="text-muted">ПомойАвто</h3>
-    </div>
+    <header id="header-container"></header>
 
     <div id="page-container"></div>
 
@@ -141,6 +132,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
   <!-- custom riot tags -->
+  <script type="riot/tag" src="pages/header-section.tag.html"></script>
   <script type="riot/tag" src="pages/signup-page.tag.html"></script>
   <script type="riot/tag" src="pages/cars-page.tag.html"></script>
 
@@ -160,6 +152,9 @@
   <script>
   function main(){
     var mountPoint = document.getElementById('page-container');
+    var headerMountPoint = document.getElementById('header-container');
+
+    riot.mount(headerMountPoint, 'header-section', {});
 
     // initialize JS router
     var root = null;
