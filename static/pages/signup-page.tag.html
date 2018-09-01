@@ -38,15 +38,15 @@
     this.errorMsg = '';
     this.isPwdVisible = false;
 
-    this.showPassword = function(event){
+    this.showPassword = function (event) {
       this.refs.password.focus();
       this.isPwdVisible = true;
     };
-    this.hidePassword = function(event){
+    this.hidePassword = function (event) {
       this.refs.password.focus();
       this.isPwdVisible = false;
     };
-    this.submit = function(event){
+    this.submit = function (event) {
       event.preventDefault();
 
       var riotTag = this;
@@ -55,17 +55,17 @@
         method: 'POST',
         body: new FormData(formElement),
         credentials: 'include'
-      }).then(function(response) {
-        if (response.status==200){
+      }).then(function (response) {
+        if (response.status == 200) {
           window.go2page('/');
-        } else if (response.status==400){
+        } else if (response.status == 400) {
           riotTag.errorMsg = 'Упс, что-то пошло не так. Попробуйте еще раз';
           riotTag.update();
-        } else if (response.status==500){
+        } else if (response.status == 500) {
           riotTag.errorMsg = 'Упс, что-то пошло не так. Ошибка на сервере';
           riotTag.update();
         }
-      }).catch(function(error) {
+      }).catch(function (error) {
         riotTag.errorMsg = 'Упс, что-то пошло не так';
         console.error(error);
         riotTag.update();

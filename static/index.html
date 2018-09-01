@@ -31,6 +31,7 @@
       padding-bottom: 20px;
       border-bottom: 1px solid #e5e5e5;
     }
+
     /* Make the masthead heading the same height as the navigation */
     .header h3 {
       margin-top: 0;
@@ -51,6 +52,7 @@
         max-width: 730px;
       }
     }
+
     .container-narrow > hr {
       margin: 30px 0;
     }
@@ -60,6 +62,7 @@
       text-align: center;
       border-bottom: 1px solid #e5e5e5;
     }
+
     .jumbotron .btn {
       padding: 14px 24px;
       font-size: 21px;
@@ -69,6 +72,7 @@
     .marketing {
       margin: 40px 0;
     }
+
     .marketing p + h4 {
       margin-top: 28px;
     }
@@ -82,10 +86,12 @@
         padding-right: 0;
         padding-left: 0;
       }
+
       /* Space out the masthead */
       .header {
         margin-bottom: 30px;
       }
+
       /* Remove the bottom border on the jumbotron for visual effect */
       .jumbotron {
         border-bottom: 0;
@@ -96,25 +102,30 @@
     .spacer20 {
       height: 20px;
     }
+
     .top5 {
       margin-top: 5px;
     }
+
     .top10 {
       margin-top: 10px;
     }
+
     .top20 {
       margin-top: 20px;
     }
+
     .top30 {
       margin-top: 30px;
     }
+
     .top40 {
       margin-top: 40px;
     }
+
     .top50 {
       margin-top: 50px;
     }
-
 
   </style>
 </head>
@@ -140,7 +151,7 @@
   <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.4/fetch.min.js"></script><!-- uses isomorfic fetch for IE support -->
 
   <script type="text/javascript">
-    window.getAPIUrl = function(endpoint){
+    window.getAPIUrl = function (endpoint) {
       if (endpoint.startsWith('/'))
         endpoint = endpoint.substring(1);
 
@@ -150,34 +161,35 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/riot@3.6/riot+compiler.min.js"></script>
   <script>
-  function main(){
-    var mountPoint = document.getElementById('page-container');
-    var headerMountPoint = document.getElementById('header-container');
+    function main() {
+      var mountPoint = document.getElementById('page-container');
+      var headerMountPoint = document.getElementById('header-container');
 
-    riot.mount(headerMountPoint, 'header-section', {});
+      riot.mount(headerMountPoint, 'header-section', {});
 
-    // initialize JS router
-    var root = null;
-    var useHash = true;
-    var router = new Navigo(root, useHash);
+      // initialize JS router
+      var root = null;
+      var useHash = true;
+      var router = new Navigo(root, useHash);
 
-    window.go2page = function(url){
-      router.navigate(url);
-    };
+      window.go2page = function (url) {
+        router.navigate(url);
+      };
 
-    router.on({
-      // docs live here https://github.com/krasimir/navigo
-      '/signup': function(){
-        riot.mount(mountPoint, 'signup-page', {});
-      },
+      router.on({
+        // docs live here https://github.com/krasimir/navigo
+        '/signup': function () {
+          riot.mount(mountPoint, 'signup-page', {});
+        },
 
-      '/': function(){
-        riot.mount(mountPoint, 'cars-page', {});
-      },
-    }).resolve();
+        '/': function () {
+          riot.mount(mountPoint, 'cars-page', {});
+        },
+      }).resolve();
 
-  }
-  main();
+    }
+
+    main();
   </script>
 </body>
 </html>
