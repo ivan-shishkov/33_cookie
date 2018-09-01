@@ -36,7 +36,20 @@
         }
       })
     }
-
     this.on('mount', fetchCars);
+    this.on('mount', function () {
+      var menuElement = document.getElementById('menu-my-auto');
+
+      if (menuElement) {
+        menuElement.classList.add('active');
+      }
+    });
+    this.on('unmount', function () {
+      var menuElement = document.getElementById('menu-my-auto');
+
+      if (menuElement) {
+        menuElement.classList.remove('active');
+      }
+    });
   </script>
 </cars-page>

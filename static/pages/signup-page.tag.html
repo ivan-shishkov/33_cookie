@@ -70,6 +70,20 @@
         console.error(error);
         riotTag.update();
       })
-    }
+    };
+    this.on('mount', function () {
+      var menuElement = document.getElementById('menu-registration');
+
+      if (menuElement) {
+        menuElement.classList.add('active');
+      }
+    });
+    this.on('unmount', function () {
+      var menuElement = document.getElementById('menu-registration');
+
+      if (menuElement) {
+        menuElement.classList.remove('active');
+      }
+    });
   </script>
 </signup-page>
