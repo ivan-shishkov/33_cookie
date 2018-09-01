@@ -15,7 +15,7 @@ Open page [localhost:9000](http://localhost:9000) in browser.
 
 # Deploy on production server
 
-[TODO. Deploy scripts will written later]
+Because is being used the [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) mechanism, make sure that your host is included in the `Access-Control-Allowed-Origins` header of the API server response.
 
 # Project Goals
 
